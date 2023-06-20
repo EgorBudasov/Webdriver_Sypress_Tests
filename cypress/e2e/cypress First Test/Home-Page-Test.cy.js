@@ -34,26 +34,41 @@ describe("home page test", () => {
   });
 
   it("Excellent Customer Service Test", () => {
-    homePage.getExcellentCustomerServiceBlock();
-    homePage.checkTextInExcellentCustomerService();
-    homePage.checkStarInExcellentCustomerService();
+    homePage.getExcellentCustomerServiceBlock().should("have.text", "Excellent Customer Service!");
+    homePage.getTextInExcellentCustomerService().should("not.be.empty");
+    homePage
+      .checkStarInExcellentCustomerService()
+      .find("span")
+      .should("have.length.at.least", 1)
+      .should("have.length", 5);
   });
   it("main Page Transfer link", () => {
-    homePage.mainPageTransfer()
-            .click()
-            .url()
-            .should("eq", "http://www.webdriveruniversity.com/index.html");
+    homePage
+      .mainPageTransfer()
+      .trigger("mouseover")
+      .should("have.css", "cursor", "pointer")
+      .click()
+      .url()
+      .should("eq", "http://www.webdriveruniversity.com/index.html");
   });
   it("Our product transfer link", () => {
-    homePage.ourProductsTransfer()
-            .click()
-            .url()
-            .should("eq","http://www.webdriveruniversity.com/Page-Object-Model/products.html");
+    homePage
+      .ourProductsTransfer()
+      .click()
+      .url()
+      .should(
+        "eq",
+        "http://www.webdriveruniversity.com/Page-Object-Model/products.html"
+      );
   });
   it("Contact Us transfer link", () => {
-    homePage.contactUsTransfer()
-            .click()
-            .url()
-            .should("eq", "http://www.webdriveruniversity.com/Contact-Us/contactus.html");
+    homePage
+      .contactUsTransfer()
+      .click()
+      .url()
+      .should(
+        "eq",
+        "http://www.webdriveruniversity.com/Contact-Us/contactus.html"
+      );
   });
 });

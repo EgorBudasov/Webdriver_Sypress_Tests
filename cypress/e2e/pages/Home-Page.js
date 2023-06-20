@@ -79,24 +79,21 @@ class HomePage {
   }
 
   getExcellentCustomerServiceBlock() {
-    return cy.contains("Excellent Customer Service!").should("have.text", "Excellent Customer Service!");
+    return cy.contains("Excellent Customer Service!")
   }
-  checkTextInExcellentCustomerService() {
+  getTextInExcellentCustomerService() {
     return cy
       .get(":nth-child(4) > .thumbnail > .caption > p")
-      .should("not.be.empty");
+      
   }
   checkStarInExcellentCustomerService(){
     return cy.get(':nth-child(4) > .thumbnail > .caption > .div-star ')
-    .find('span')
-    .should('have.length.at.least',1)
-    .should('have.length',5)
+    
   }
   mainPageTransfer() {
     return cy
       .get('a[class="navbar-brand"]')
-      .trigger("mouseover")
-      .should("have.css", "cursor", "pointer");
+      
     //ссылка ведет на главную страницу а название неправильное.баг?
 
   }

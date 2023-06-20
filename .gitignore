@@ -22,7 +22,5 @@ cypress/e2e/2-advanced-examples/window.cy.js
 cypress/fixtures/example.json
 cypress/support/commands.js
 cypress/support/e2e.js
-cypress.config.js
+
 .gitignore
-package.json
-package-lock.json

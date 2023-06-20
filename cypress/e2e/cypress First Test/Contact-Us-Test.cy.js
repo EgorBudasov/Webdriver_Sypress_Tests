@@ -10,34 +10,42 @@ const userWithAllEmptyFields = users[3]
 
 
 describe("Contact US", () => {
-   
+   beforeEach(()=>{
+    contactUsPage.visit()
+   })
         it(`Open and fill in the Contact US form with test case name ${userWithValidData.testName}`, () => {
-            contactUsPage.visit()
-            cy.get("#contact-us").invoke("removeAttr", "target").click();
-            contactUsPage.fillContactUsForm(userWithValidData);
+        
+            contactUsPage.fillContactUsForm(userWithValidData)
+            contactUsPage. getSubmitButton().click();
             contactUsPage.getSucsessSubmitMessage().should('exist')
             
           });
           it(`Open and fill in the Contact US form with test case name ${userEmptyEmail.testName}`, () => {
-            contactUsPage.visit()
-            cy.get("#contact-us").invoke("removeAttr", "target").click();
-            contactUsPage.fillContactUsForm(userEmptyEmail);
+            
+            contactUsPage.fillContactUsForm(userEmptyEmail)
+            contactUsPage. getSubmitButton().click();
             contactUsPage.getInvalidEmailErrorMessage()
             
           });
           it(`Open and fill in the Contact US form with test case name ${userWithoutFirstName.testName}`, () => {
-            contactUsPage.visit()
-            cy.get("#contact-us").invoke("removeAttr", "target").click();
-            contactUsPage.fillContactUsForm(userWithoutFirstName);
+          
+        
+            contactUsPage.fillContactUsForm(userWithoutFirstName)
+            contactUsPage.getSubmitButton().click();
             contactUsPage.getAllFieldsAreRequiredErrorMessage()
             
           });
-          it.only(`Open  Contact US form without test data test case name ${userWithAllEmptyFields.testName}`,()=>{
-            contactUsPage.visit()
+          it(`Open  Contact US form without test data test case name ${userWithAllEmptyFields.testName}`,()=>{
+            
             contactUsPage. getSubmitButton().click()
             contactUsPage.getAllFieldsAreRequiredErrorMessage()
             contactUsPage.getInvalidEmailErrorMessage()
           })
+          it('check reset button in contact us page',()=>{
+            contactUsPage.fillContactUsForm(userWithValidData);
+            contactUsPage.getResetButton().click()
+            contactUsPage.getFirstName().should('not.have.text')
+          })
     })
-
+пш
 

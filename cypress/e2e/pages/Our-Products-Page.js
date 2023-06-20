@@ -8,6 +8,19 @@ class OurProductsPage {
     getSpecialOffersTitle(){
         return cy.get('#container-special-offers > .section-title > .sub-heading')
     }
+    getSpecialOffersModal(){
+        return  cy.get('div[class="modal-dialog modal-md"]')
+    }
+    getModalWindowCloseButton(){
+        return cy.contains('Close')
+    }
+
+    getAllModals(){
+        return cy.get('div[data-target="#myModal"]')
+    }
+    getNavBarReferenceNumber(){
+        return cy.get('ul')
+    }
     getCameras(){
         return 
     }

@@ -51,7 +51,7 @@ getSucsessSubmitMessage(){
         if (user.comment) {
           this.getComment().type(user.comment);
         }
-       this.getSubmitButton().click();
+       ;
 
         // if ('Thank You for your Message!'){
         //   cy.get("H1").should("have.text", "Thank You for your Message!");
@@ -66,7 +66,9 @@ getSucsessSubmitMessage(){
       getAllFieldsAreRequiredErrorMessage(){
         return cy.get('body').should('contain','Error: all fields are required')
       }
-    
+      getResetButton(){
+        return cy.get('input[type="reset"]')
+      }
 }
  
 
