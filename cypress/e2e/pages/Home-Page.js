@@ -5,52 +5,52 @@ class HomePage {
 
   clickImgToTheLeft() {
     return cy
-      .get('a[class="left carousel-control"]')
+      .xpath('//a[@class="left carousel-control"]')
       .should("be.visible")
       .trigger("mouseover")
       .should("have.css", "cursor", "pointer");
   }
   thirdImgShows() {
-    return cy.get(".active > #slide-image-3").should("be.visible");
+    return cy.get(" #slide-image-3").should("be.visible");
   }
 
   clickImgToTheRight() {
     return cy
-      .get('a[class="right carousel-control"]')
+      .xpath('//a[@class="right carousel-control"]')
       .should("be.visible")
       .trigger("mouseover")
       .should("have.css", "cursor", "pointer");
   }
   firstImgShows() {
-    return cy.get(".active > #slide-image-1").should("be.visible");
+    return cy.xpath('//*[@id="slide-image-1"]').should("be.visible");
   }
 
   getCaruselImage(){
-    return cy.get('[data-slide-to="1"]')
+    return cy.xpath('//li[@data-slide-to="1"]')
   }
   secondImgShows() {
-    return cy.get(".active > #slide-image-1").should("be.visible");
+    return cy.xpath('//*[@id="slide-image-1"]').should("be.visible");
   }
 
   getWhoWeAreBlock() {
     return cy
-      .get(":nth-child(1) > .thumbnail > .section-title > .sub-heading")
+      .xpath('//p[@class="sub-heading"][contains(text(),"Who Are We?")]')
       .should("have.text", "Who Are We?");
   }
   checkTextInWhoWeAre() {
     return cy
-      .get(":nth-child(1) > .thumbnail > .caption > p")
+      .xpath("//div[@class='caption']").eq(0).find('p')
       .should("not.be.empty");
   }
   getFindOutMoreButton() {
     return cy
-      .get('[class="btn btn-secondary center-block"]')
+      .xpath('//button/b[contains(text(), "Find Out More!")]')
       .trigger("mouseover")
       .should("have.css", "cursor", "pointer");
   }
 
   getFindOutMoreModalWindow(){
-    return cy.get('div[class="modal-content"]')
+    return cy.xpath('//div[@class="modal-content"]')
              .should('contain','Welcome to webdriveruniversity.com')
              .contains('Close')
   }
@@ -60,11 +60,11 @@ class HomePage {
   }
   checkTextInGreatService() {
     return cy
-      .get(":nth-child(2) > .thumbnail > .caption > p")
+      .get("div[class='caption']").eq(1).children()
       .should("not.be.empty");
   }
   checkStarInGreatService(){
-    return cy.get(':nth-child(2) > .thumbnail > .caption > .div-star ')
+    return cy.get('.div-star').eq(0)
     .find('span')
     .should('have.length.at.least',1)
     .should('have.length',5)
@@ -74,7 +74,7 @@ class HomePage {
   }
   checkTextWhyChooseUs() {
     return cy
-      .get(":nth-child(3) > .thumbnail > .caption > p")
+      .xpath("//div[@class='caption']").eq(2).children()
       .should("not.be.empty");
   }
 
@@ -83,12 +83,11 @@ class HomePage {
   }
   getTextInExcellentCustomerService() {
     return cy
-      .get(":nth-child(4) > .thumbnail > .caption > p")
+      .get("div[class='caption']").eq(3).children()
       
   }
   checkStarInExcellentCustomerService(){
-    return cy.get(':nth-child(4) > .thumbnail > .caption > .div-star ')
-    
+    return cy.get('.div-star').eq(1)
   }
   mainPageTransfer() {
     return cy

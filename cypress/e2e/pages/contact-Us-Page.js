@@ -5,24 +5,25 @@ class contactUsPage{
     }
 
     getFirstName(){
-        return cy.get ('input[name="first_name"]')
+        return cy.xpath ('//input[@name="first_name"]')
+      
     }
 
     getLastName(){
-        return cy.get('input[name="last_name"]')
+        return cy.xpath('//input[@name="last_name"]')
     }
 
     getEmail(){
-    return  cy.get('input[name="email"]')
+    return  cy.xpath('//input[@name="email"]')
     }
 
     getComment(){
-        return cy.get('textarea[name="message"]')
+        return cy.xpath('//textarea[@name="message"]')
 
     }
 
     getSubmitButton(){
-        return cy.get('input[type="submit"]')
+        return cy.xpath('//input[@type="submit"]')
     }
 
     getResetButton(){
@@ -67,7 +68,7 @@ getSucsessSubmitMessage(){
         return cy.get('body').should('contain','Error: all fields are required')
       }
       getResetButton(){
-        return cy.get('input[type="reset"]')
+        return cy.xpath('//input[@type="reset"]')
       }
 }
  

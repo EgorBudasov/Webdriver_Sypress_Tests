@@ -1,6 +1,8 @@
-/// <reference types="Cypress" />
+
 import { users } from "../test-data/users-test-data";
 import ContactUsPage from "../pages/contact-Us-Page"
+
+
 
 const contactUsPage = new ContactUsPage();
 const userWithValidData = users[0];
@@ -46,6 +48,7 @@ describe("Contact US", () => {
             contactUsPage.getResetButton().click()
             contactUsPage.getFirstName().should('not.have.text')
           })
+        
     })
-пш
+
 

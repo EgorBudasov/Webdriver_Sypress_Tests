@@ -3,20 +3,20 @@ class OurProductsPage {
         cy.visit('http://www.webdriveruniversity.com/Page-Object-Model/products.html')
     }
     getSpecialOffers(){
-    return  cy.get('#container-special-offers')
+    return  cy.xpath('//div[@id="container-special-offers"]')
     }
     getSpecialOffersTitle(){
-        return cy.get('#container-special-offers > .section-title > .sub-heading')
+        return cy.xpath('//p[contains(text(),"Special Offers")]')
     }
     getSpecialOffersModal(){
-        return  cy.get('div[class="modal-dialog modal-md"]')
+        return  cy.xpath('//div[@class="modal-dialog modal-md"]')
     }
     getModalWindowCloseButton(){
         return cy.contains('Close')
     }
 
     getAllModals(){
-        return cy.get('div[data-target="#myModal"]')
+        return cy.xpath('//div[@data-target="#myModal"]')
     }
     getNavBarReferenceNumber(){
         return cy.get('ul')
