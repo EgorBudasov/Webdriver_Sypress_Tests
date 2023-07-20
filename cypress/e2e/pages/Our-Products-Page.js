@@ -6,7 +6,7 @@ class OurProductsPage {
     return  cy.xpath('//div[@id="container-special-offers"]')
     }
     getSpecialOffersTitle(){
-        return cy.xpath('//p[contains(text(),"Special Offers")]')
+        return cy.xpath('//p[text()="Special Offers"]')
     }
     getSpecialOffersModal(){
         return  cy.xpath('//div[@class="modal-dialog modal-md"]')

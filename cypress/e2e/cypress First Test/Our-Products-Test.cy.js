@@ -9,7 +9,7 @@ describe('Our Products ',() =>{
         ourProduct.openPage()
     })
     it('check Special Offers title  color',()=>{
-        ourProduct.getSpecialOffersTitle().should('have.css','color','rgb(244, 89, 80)')
+        ourProduct.getSpecialOffersTitle().should('have.css','color','rgb(244, 89, 80)').and('contain','Special Offers')
     })
     it('check Special Offers modal window',()=>{
         ourProduct.getSpecialOffers().click()

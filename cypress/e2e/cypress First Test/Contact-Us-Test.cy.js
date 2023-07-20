@@ -1,7 +1,8 @@
-
+/// <reference types="Cypress" />
+ 
 import { users } from "../test-data/users-test-data";
 import ContactUsPage from "../pages/contact-Us-Page"
-
+import { contactUsStep} from "../steps/contact-us-steps";
 
 
 const contactUsPage = new ContactUsPage();
@@ -13,20 +14,21 @@ const userWithAllEmptyFields = users[3]
 
 describe("Contact US", () => {
    beforeEach(()=>{
-    contactUsPage.visit()
+    contactUsStep.visit()
    })
-        it(`Open and fill in the Contact US form with test case name ${userWithValidData.testName}`, () => {
+        it.only(`Open and fill in the Contact US form with test case name ${userWithValidData.testName}`, () => {
         
-            contactUsPage.fillContactUsForm(userWithValidData)
-            contactUsPage. getSubmitButton().click();
-            contactUsPage.getSucsessSubmitMessage().should('exist')
+            contactUsStep.fillContactUsForm(userWithValidData)
+            contactUsStep.verifyContactUsForm(userWithValidData)
+             contactUsStep.submitContactUsForm()
+             ContactUsPage.getSucsessSubmitMessage.should('exist')
             
           });
           it(`Open and fill in the Contact US form with test case name ${userEmptyEmail.testName}`, () => {
             
-            contactUsPage.fillContactUsForm(userEmptyEmail)
-            contactUsPage. getSubmitButton().click();
-            contactUsPage.getInvalidEmailErrorMessage()
+            contactUsStep.fillContactUsForm(userEmptyEmail)
+           
+            contactUsStep.getInvalidEmailErrorMessage()
             
           });
           it(`Open and fill in the Contact US form with test case name ${userWithoutFirstName.testName}`, () => {

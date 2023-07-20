@@ -3,28 +3,28 @@
 export const users = [
   {
     testName: "all valid data",
-    firsrName: "First Test name",
+    firstName: "First Test name",
     lastName: "Test last name",
     email: "email@test.com",
     comment: "Test comment",
   },
   {
     testName: "empty email",
-    firsrName: " Second Test name",
+    firstName: " Second Test name",
     lastName: "Test last name",
     email: " ",
     comment: "Test comment",
   },
   {
     testName: "without first name",
-    firsrName: "",
+    firstName: "",
     lastName: "Test last name",
     email: "email@test.com",
     comment: "Test comment",
   },
   {
     testName: "",
-    firsrName: "",
+    firstName: "",
     lastName: "",
     email: "",
     comment: "",

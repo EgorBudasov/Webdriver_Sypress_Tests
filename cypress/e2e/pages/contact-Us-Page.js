@@ -1,76 +1,59 @@
-class contactUsPage{
-    visit(){
-        cy.visit('http://www.webdriveruniversity.com/Contact-Us/contactus.html')
-       
-    }
-
-    getFirstName(){
+class ContactUsPage{
+  
+    static get getFirstName(){
         return cy.xpath ('//input[@name="first_name"]')
       
     }
 
-    getLastName(){
+    static get getLastName(){
         return cy.xpath('//input[@name="last_name"]')
     }
 
-    getEmail(){
+    static get getEmail(){
     return  cy.xpath('//input[@name="email"]')
     }
 
-    getComment(){
+    static get getComment(){
         return cy.xpath('//textarea[@name="message"]')
 
     }
 
-    getSubmitButton(){
+    static get getSubmitButton(){
         return cy.xpath('//input[@type="submit"]')
     }
 
-    getResetButton(){
+    static get getResetButton(){
         return cy.get("#form_buttons").contains('RESET')
     }
 
-    getContactUsHeader(){
+    static get getContactUsHeader(){
       return cy.get('name = "contactme"')
     }
 
 
-getSucsessSubmitMessage(){
-  return cy.get("H1").should("have.text", "Thank You for your Message!");
+    static get  getSucsessSubmitMessage(){
+  return cy.get("H1").should("have.text", "Thank You for your Message!").and('exist');
 }
 
-    fillContactUsForm(user) {
-        if (user.firsrName) {
-         this.getFirstName().type(user.firsrName);
-        }
-        if (user.lastName) {
-         this.getLastName().type(user.lastName);
-        }
-        if (user.email) {
-          this.getEmail().type(user.email);
-        }
-        if (user.comment) {
-          this.getComment().type(user.comment);
-        }
-       ;
+    
 
         // if ('Thank You for your Message!'){
         //   cy.get("H1").should("have.text", "Thank You for your Message!");
         //   cy.log('good job')
         //   return;
         // }
-      }
-      getInvalidEmailErrorMessage(){
+     
+      static get getInvalidEmailErrorMessage(){
         return cy.get('body').should('contain','Error: Invalid email address')
       }
       
-      getAllFieldsAreRequiredErrorMessage(){
+      static get getAllFieldsAreRequiredErrorMessage(){
         return cy.get('body').should('contain','Error: all fields are required')
       }
-      getResetButton(){
+      static get getResetButton(){
         return cy.xpath('//input[@type="reset"]')
       }
 }
  
 
-export default contactUsPage;
+export default ContactUsPage;
