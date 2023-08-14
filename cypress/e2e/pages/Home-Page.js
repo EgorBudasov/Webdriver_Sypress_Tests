@@ -1,25 +1,19 @@
 class HomePage {
-  openHomePage() {
-    cy.visit("http://www.webdriveruniversity.com/Page-Object-Model/index.html");
-  }
 
-  clickImgToTheLeft() {
+
+ static get clickImgToTheLeft() {
     return cy
       .xpath('//a[@class="left carousel-control"]')
-      .should("be.visible")
-      .trigger("mouseover")
-      .should("have.css", "cursor", "pointer");
+      
   }
-  thirdImgShows() {
-    return cy.get(" #slide-image-3").should("be.visible");
+static get   thirdImgShows() {
+    return cy.get(" #slide-image-3");
   }
 
-  clickImgToTheRight() {
+ static get clickImgToTheRight() {
     return cy
       .xpath('//a[@class="right carousel-control"]')
-      .should("be.visible")
-      .trigger("mouseover")
-      .should("have.css", "cursor", "pointer");
+      
   }
   firstImgShows() {
     return cy.xpath('//*[@id="slide-image-1"]').should("be.visible");

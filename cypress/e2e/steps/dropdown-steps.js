@@ -21,16 +21,20 @@ getCheckBoxesByID(id){
     .check().should('be.checked')
 }
 
-verifyRadioButtonsColor(arrayOfValues){
-    DropdownPage.verifyRadioButtonsColor(arrayOfValues)
+verifyRadioButtonsColorStep(arrayOfValues){
+    arrayOfValues.forEach((colorvalue)=>{
+        DropdownPage.getRadioButtonsById.find('input').check(colorvalue)
+        .should('be.checked').should('have.value',colorvalue)
+    })
+    
 }
 
 getSelectedDisabledBlockStep(){
     DropdownPage.getSelectedDisabledBlock.should('exist')
 }
 
-verifySelectedDisabledFruits(arrayOfValues){
-    DropdownPage.verifySelectedDisabledFruits(arrayOfValues)
+verifySelectedDisabledVegetable(arrayOfValues){
+    DropdownPage.verifySelectedDisabledVegetable(arrayOfValues)
 }
     
 }

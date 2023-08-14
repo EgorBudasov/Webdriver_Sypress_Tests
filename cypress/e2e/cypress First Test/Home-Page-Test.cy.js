@@ -1,17 +1,17 @@
 /// <reference types="Cypress" />
 
 import HomePage from "../pages/Home-Page";
-
+import { HomePageSteps, homePageSteps } from "../steps/Home-Page-Steps";
 const homePage = new HomePage();
 
 describe("home page test", () => {
   beforeEach(() => {
-    homePage.openHomePage();
+    homePageSteps.openHomePage();
   });
   it("Slide Image Check", () => {
-    homePage.clickImgToTheLeft().click();
-    homePage.thirdImgShows();
-    homePage.clickImgToTheRight().click();
+    homePageSteps.clickImgToTheLeftSteps();
+    homePageSteps.thirdImgShowsSteps();
+    homePageSteps.clickImgToTheRightSteps();
     homePage.firstImgShows();
     homePage.getCaruselImage().click();
     homePage.secondImgShows();

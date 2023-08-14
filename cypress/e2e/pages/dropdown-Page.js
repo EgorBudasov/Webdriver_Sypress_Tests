@@ -26,13 +26,7 @@ export class DropdownPage{
  }
 
 
- static verifyRadioButtonsColor(arrayOfValues){
-    arrayOfValues.forEach(colorvalue =>{
-       this.getRadioButtonsById.find('input').check(colorvalue)
-       .should('be.checked').should('have.value',colorvalue)
-    })
-
-}
+// 
 
 verifyAllRadiButtons(){
     return cy.xpath('//form[@id="radio-buttons"]/input[@type="radio"]')
@@ -50,10 +44,21 @@ static get getRadioButtonsById(){
  return   cy.xpath('//form[@id = "radio-buttons-selected-disabled"]')
 }
 
-static verifySelectedDisabledFruits(arrayOfValues){
-    arrayOfValues.forEach(Fruitvalue =>{
-       this.getSelectedDisabledRadioButtons.find('input').check(Fruitvalue)
-       .should('be.checked').should('have.value',Fruitvalue)
+static get getSelectedDisabledRadioButtonCabbage(){
+   return cy.xpath('//form[@id = "radio-buttons-selected-disabled"]//input[@value = "cabbage"]') 
+}
+
+
+static verifySelectedDisabledVegetable(arrayOfValues){
+    arrayOfValues.forEach(Vegetablevalue =>{
+        if (Vegetablevalue !== "cabbage"){
+            this.getSelectedDisabledRadioButtons.find('input').check(Vegetablevalue)
+       .should('be.checked').should('have.value',Vegetablevalue)
+        }else{
+            this.getSelectedDisabledRadioButtonCabbage.should('be.disabled')
+            
+        }
+       
     })
 
 }

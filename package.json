@@ -17,6 +17,7 @@
     "prettier": "^2.8.8"
   },
   "dependencies": {
-    "cypress-commands": "^3.0.0"
+    "cypress-commands": "^3.0.0",
+    "date-fns": "^2.30.0"
   }
 }

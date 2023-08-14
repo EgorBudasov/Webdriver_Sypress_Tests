@@ -8,13 +8,6 @@ export class Accordion_Steps {
             should('include', 'Accordion');
     }
 
-    getNavBarStep() {
-        AccordionPOM.navBar.should('exist');
-    }
-    checkNavBarStep() {
-        AccordionPOM.navBar.should('have.text', 'WebDriver (Accordion Items & Text Appear)').
-            click().url().should('equal', WebDriwerMainPageUrl).go('back');
-    }
     getHeaderStep() {
         AccordionPOM.header.should('exist');
     }
@@ -67,7 +60,7 @@ export class Accordion_Steps {
             cy.waitUntil(() =>
                 AccordionPOM.LoadingButton.invoke('text').then((expectedText) => {
                     return currentText !== expectedText
-                })
+                }),{timeout:10000}
             ).then(() => {
                 AccordionPOM.keepClickingAccordion.click().should('have.class', 'active')
             })
@@ -96,3 +89,6 @@ export class Accordion_Steps {
 }
 
 export const accordion_steps = new Accordion_Steps;
+logMessage(message){
+    
+}

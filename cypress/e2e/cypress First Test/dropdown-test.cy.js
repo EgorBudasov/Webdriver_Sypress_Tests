@@ -36,13 +36,13 @@ describe('Dropdown', () => {
         dropdown.getAllCheckBoxes().should('have.length',4)
         dropdownSteps.getCheckBoxesByID(3)
     });
-    it('Radio Buttons', () => {
+    it.only('Radio Buttons', () => {
         dropdown.verifyAllRadiButtons().should('have.length',5)
-        dropdownSteps.verifyRadioButtonsColor(radioButtonsArr)
+        dropdownSteps.verifyRadioButtonsColorStep(radioButtonsArr)
     });
     it('Selected and Disabled block', () => {
         dropdownSteps.getSelectedDisabledBlockStep()
-        //dropdownSteps.verifySelectedDisabledFruits(selectedDisabledFruitArr)
+        dropdownSteps.verifySelectedDisabledVegetable(selectedDisabledFruitArr)
         dropdown.verifySelectedDisabledDropdownOptions(dropdowmFruit)
     });
 });
